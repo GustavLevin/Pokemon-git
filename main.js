@@ -181,7 +181,10 @@ const PokedexData = [
         PokedexData.forEach((item) => {
             let li = document.createElement("li");
 
-        
+            let img = document.createElement("img");
+            img.src = item.url;
+            img.alt = item.name;
+            filteredResultList.appendChild(img);
 
             li.innerHTML = `${item.name} - ${item.height} - ${item.weight} - ${item.type} - ${item.url}`;
             filteredResultList.append(li);
