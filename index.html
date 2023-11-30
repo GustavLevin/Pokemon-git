@@ -9,9 +9,9 @@
   </head>
   <body>
     <h1>Pokemon application</h1>
-    <button id="showResultBtn">Show result</button>
+    <button id="showResultBtn">Show result</button><br><br>
     
-    <label for="fireType">Fire</label>
+    <label for="fireType">fire</label>
     <input type="checkbox" id="fireType" name="type" value="fire">
     
     <label for="WaterType">Water</label>
@@ -28,10 +28,22 @@
     
     <label for="normalType">Normal</label>
     <input type="checkbox" id="normalType" name="type" value="normal">
-
+ <br>
     <button id="filterBtn">filter</button>
         <ul id="result"></ul>
         <ul id="filteredResult"></ul>
+
+        <br>
+
+        <form>
+          <input type="text" id="name" placeholder="Pokemon name:">
+          <input type="text" id="height" placeholder="Pokemon height:">
+          <input type="text" id="weight" placeholder="Pokemon weight:">
+          <input type="text" id="type" placeholder="Pokemon type:">
+          <input type="text" id="url" placeholder="Pokemon url:">
+        </form>
+
+        <button id="addPokemonBtn">Add Pokemon</button>
 
   </body>
 </html>
