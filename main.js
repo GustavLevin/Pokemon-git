@@ -117,7 +117,17 @@ const PokedexData = [
     let showResultList = document.querySelector("#result");
     let showFilterBtn = document.querySelector("#filterBtn");
     let filteredArray = [];
+    let filteredResultList = document.querySelector("#filteredResult");
+    let addPokemonBtn = document.querySelector("#addPokemonBtn");
+
+  let pokeName = document.querySelector("#name");
+  let pokeHeight = document.querySelector("#height");
+  let pokeWeight = document.querySelector("#weight");
+  let pokeType = document.querySelector("#type");
+  let pokeUrl = document.querySelector("#url");
+
     showResultBtn.addEventListener("click", () => {
+        
         PokedexData.forEach((item) => {
             let li = document.createElement("li");
 
@@ -131,18 +141,70 @@ const PokedexData = [
         });
     });
     showFilterBtn.addEventListener("click", () =>{
+      filteredResultList.innerHTML = "";
         let selectedType = document.querySelectorAll("[name='type']:checked");
         selectedType.forEach((checkbox) => {
             filteredArray.push(checkbox.value);
         });
-
-        
-
+        console.log(filteredArray);
+       
+  //Loopa igenom data
+  PokedexData.forEach((item) => {
+    //Om personens job finns i listan
+    if (filteredArray.includes(item.type)) {
+      let li = document.createElement("li");
+      li.innerText = `${item.name} - ${item.height} - ${item.weight} - ${item.type}`;
+      filteredResultList.append(li);
+    }
+  });
+  filteredArray = [];
 
 
         
     });
 
+    addPokemonBtn.addEventListener("click", () => {
+      let newPokemon = {
+        name: pokeName.value,
+        height: pokeHeight.value,
+        weight: pokeWeight.value,
+        type: pokeType.value,
+        url: pokeUrl.value, 
+      };
+
+      PokedexData.push(newPokemon);
+
+      filteredResultList.innerHTML="";
+      
+        console.log(PokedexData);
+
+        PokedexData.forEach((item) => {
+            let li = document.createElement("li");
+
+        
+
+            li.innerHTML = `${item.name} - ${item.height} - ${item.weight} - ${item.type} - ${item.url}`;
+            filteredResultList.append(li);
+        });
+        
+
+    });
 
 
     
+
+
+
+    // registerBtn.addEventListener("click", ()=>{
+    
+    //     let  newEmployee = {
+    //             name:  firstName.value  + lastName.value ,
+    //             age: age.value,
+    //             job: selectedJob.value,
+    //     };
+        
+    //     employees.push(newEmployee);
+        
+    //     employeeList.innerHTML = "";
+        
+
