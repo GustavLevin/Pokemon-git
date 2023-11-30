@@ -122,12 +122,12 @@ const PokedexData = [
             let li = document.createElement("li");
 
             let img = document.createElement("img");
-      img.src = item.url;
-      img.alt = item.name;
-      li.appendChild(img);
+            img.src = item.url;
+            img.alt = item.name;
+            showResultList.appendChild(img);
 
             li.innerHTML = `${item.name} - ${item.height} - ${item.weight} - ${item.type} - ${item.url}`;
-            showResultList.appendChild(li);
+            showResultList.append(li);
         });
     });
     showFilterBtn.addEventListener("click", () =>{
@@ -135,6 +135,11 @@ const PokedexData = [
         selectedType.forEach((checkbox) => {
             filteredArray.push(checkbox.value);
         });
+
+        
+
+
+
         
     });
 
