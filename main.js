@@ -115,7 +115,8 @@ const PokedexData = [
 
     let showResultBtn = document.querySelector("#showResultBtn");
     let showResultList = document.querySelector("#result");
-
+    let showFilterBtn = document.querySelector("#filterBtn");
+    let filteredArray = [];
     showResultBtn.addEventListener("click", () => {
         PokedexData.forEach((item) => {
             let li = document.createElement("li");
@@ -128,6 +129,13 @@ const PokedexData = [
             li.innerHTML = `${item.name} - ${item.height} - ${item.weight} - ${item.type} - ${item.url}`;
             showResultList.appendChild(li);
         });
+    });
+    showFilterBtn.addEventListener("click", () =>{
+        let selectedType = document.querySelectorAll("[name='type']:checked");
+        selectedType.forEach((checkbox) => {
+            filteredArray.push(checkbox.value);
+        });
+        
     });
 
 
